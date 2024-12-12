@@ -4,6 +4,7 @@ $lesCategories = $c_Categories->selectAllCategories();
 $lesEvenements = $c_Event->selectAllEvenements();
 
 
+
 $lEvenement = null;
 if (isset($_GET['action']) and isset($_GET['idevenement'])) {
     $action = $_GET['action'];

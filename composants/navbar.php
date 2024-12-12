@@ -20,6 +20,16 @@
             }
             ?>
         </li>
+
+        <li>
+            <?php
+            if (isset($_SESSION['email']) and ($_SESSION['role'] == 'admin')) {
+                echo ' <a href="index.php?page=7">Liste Professionnel</a>';
+            } else {
+            }
+            ?>
+        </li>
+
         <li>
             <?php
             if (isset($_SESSION['email'])) {
@@ -33,7 +43,7 @@
         <?php
         if (!empty($_SESSION['email'])) {
             echo '<li>';
-            echo "<p class='identification-nav'>" . $_SESSION['email'] . " / " . $_SESSION['role']."</p>";
+            echo "<p class='identification-nav'>" . $_SESSION['email'] . " / " . $_SESSION['role'] . "</p>";
             echo '</li>';
         }
 

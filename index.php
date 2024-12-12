@@ -5,14 +5,16 @@ require_once("controleur/controleurEvent.class.php");
 require_once("controleur/controleurService.class.php");
 require_once("controleur/controleurTypeService.class.php");
 require_once("controleur/controleurUser.class.php");
+require_once("controleur/AdminController.php");
 require_once("controleur/config_bdd.php");
-// instanciation du controleur 
+
+// Instanciation des contrôleurs
 $c_Categories = new ControleurCategorie($serveur, $serveur2, $bdd, $user, $mdp, $mdp2);
 $c_Event = new ControleurEvent($serveur, $serveur2, $bdd, $user, $mdp, $mdp2);
 $c_Service = new ControleurService($serveur, $serveur2, $bdd, $user, $mdp, $mdp2);
 $c_TypeService = new ControleurTypeService($serveur, $serveur2, $bdd, $user, $mdp, $mdp2);
 $c_User = new ControleurUser($serveur, $serveur2, $bdd, $user, $mdp, $mdp2);
-
+$c_Admin = new AdminController($serveur, $serveur2, $bdd, $user, $mdp, $mdp2); // Ajout du contrôleur admin
 ?>
 
 <!DOCTYPE html>
@@ -22,7 +24,7 @@ $c_User = new ControleurUser($serveur, $serveur2, $bdd, $user, $mdp, $mdp2);
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/ico" href="images/olympic.ico"/>
+    <link rel="icon" type="image/ico" href="images/olympic.ico" />
     <link href="styles.css" rel="stylesheet" type="text/css">
     <link href="css/home.css" rel="stylesheet" type="text/css">
     <title>Jeux Olympiques 2024</title>
@@ -36,9 +38,8 @@ $c_User = new ControleurUser($serveur, $serveur2, $bdd, $user, $mdp, $mdp2);
     <main>
 
         <?php
-
         isset($_GET['page']) ? $page =  $_GET['page'] : $page = 0;
-        
+
         switch ($page) {
             case 0:
                 require_once("pages/home.php");
@@ -61,6 +62,25 @@ $c_User = new ControleurUser($serveur, $serveur2, $bdd, $user, $mdp, $mdp2);
             case 6:
                 require_once("pages/profil.php");
                 break;
+
+            case 7:
+                // Liste des professionnels
+                $c_Admin->listeProfessionnels();
+                break;
+
+            case 8:
+                // Modifier un professionnel
+                if (isset($_GET['iduser'])) {
+                    $c_Admin->modifierProfessionnel($_GET['iduser']);
+                }
+                break;
+
+            case 9:
+                // Supprimer un professionnel
+                if (isset($_GET['iduser'])) {
+                    $c_Admin->supprimerProfessionnel($_GET['iduser']);
+                }
+                break;
         }
         ?>
     </main>
@@ -68,7 +88,6 @@ $c_User = new ControleurUser($serveur, $serveur2, $bdd, $user, $mdp, $mdp2);
     <footer>
         <?php require_once('composants/footer.php'); ?>
     </footer>
-
 
     <script src="js/script.js" defer></script>
 </body>

@@ -241,3 +241,157 @@ footer {
     object-fit: cover;
 }
 /*  fin affiche hotel */
+
+
+/* Style pour la gestion des professionnels */
+
+/* Liste des professionnels */
+.table-professionnels {
+    margin: 20px auto;
+    border-collapse: collapse;
+    width: 80%;
+    font-family: 'Paris2024', sans-serif;
+}
+
+.table-professionnels th,
+.table-professionnels td {
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #ddd;
+}
+
+.table-professionnels th {
+    background-color: #005a82;
+    color: white;
+}
+
+.table-professionnels tr:hover {
+    background-color: #A8E7FD;
+}
+
+.table-professionnels .actions {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.table-professionnels .edit-btn,
+.table-professionnels .delete-btn {
+    background-color: #FF8C00;
+    color: white;
+    padding: 5px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: 'Paris2024', sans-serif;
+}
+
+.table-professionnels .edit-btn:hover {
+    background-color: #E07B00;
+}
+
+.table-professionnels .delete-btn {
+    background-color: #FF4040;
+}
+
+.table-professionnels .delete-btn:hover {
+    background-color: #E03A3A;
+}
+
+/* Formulaire d'édition des professionnels */
+.form-professionnel {
+    width: 50%;
+    margin: 20px auto;
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.form-professionnel input,
+.form-professionnel select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    font-family: 'Paris2024', sans-serif;
+    font-size: 1.1em;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    background-color: #fff;
+}
+
+.form-professionnel input:focus,
+.form-professionnel select:focus {
+    background-color: #A8E7FD;
+    border-color: #005a82;
+}
+
+.form-professionnel .submit-btn {
+    background-color: #005a82;
+    color: white;
+    padding: 10px 20px;
+    font-size: 1.1em;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-family: 'Paris2024', sans-serif;
+}
+
+.form-professionnel .submit-btn:hover {
+    background-color: #00496f;
+}
+
+/* Ajout des boutons d'action dans la liste */
+.bouton-action {
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+}
+
+.bouton-action a {
+    text-decoration: none;
+    background-color: #005a82;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-family: 'Paris2024', sans-serif;
+    font-size: 1em;
+    transition: background-color 0.3s;
+}
+
+.bouton-action a:hover {
+    background-color: #00496f;
+}
+
+/* Style pour les messages d'erreur ou de succès */
+.alert {
+    padding: 10px;
+    background-color: #FFEB3B;
+    color: #000;
+    border-radius: 5px;
+    font-family: 'Paris2024', sans-serif;
+    margin-bottom: 20px;
+}
+
+.alert.success {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.alert.error {
+    background-color: #FF4040;
+    color: white;
+}
+
+/* Gestion des pages pour l'édition */
+.page-header {
+    text-align: center;
+    font-size: 1.8em;
+    margin-bottom: 20px;
+    font-family: 'Paris2024', sans-serif;
+    color: #005a82;
+}
+
+.page-header span {
+    color: #FF8C00;
+}
